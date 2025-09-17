@@ -1,0 +1,43 @@
+[
+  {
+    "type": "OIDC",
+    "metadata": {
+      "type": "OIDC",
+      "providerName": "Authentik",
+      "logoUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/authentik.svg",
+      "displayOrder": 1,
+      "capabilityLevel": "USER_SOURCE",
+      "enabled": true
+    },
+    "clientId": "",
+    "clientSecret": "",
+    "issuerUri": "https://auth.maomaocloud.net/application/o/maomaoworld/",
+    "redirectUri": "http://192.168.178.3:8080/api/auth/oidc/callback",
+    "authorizationUri": "https://auth.maomaocloud.net/application/o/authorize/",
+    "tokenUri": "https://auth.maomaocloud.net/application/o/token/",
+    "userInfoUri": "https://auth.maomaocloud.net/application/o/userinfo/",
+    "jwksUri": "https://auth.maomaocloud.net/application/o/maomaoworld/jwks/",
+    "logoutUri": "https://auth.maomaocloud.net/application/o/maomaoworld/end-session/"
+  },
+  {
+    "type": "OAUTH2",
+    "metadata": {
+      "type": "OAUTH2",
+      "providerName": "Discord (Dev)",
+      "logoUrl": "https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/66e3d80db9971f10a9757c99_Symbol.svg",
+      "displayOrder": 3,
+      "capabilityLevel": "LOGIN_ONLY",
+      "enabled": true
+    },
+    "clientId": "",
+    "clientSecret": "",
+    "authorizationUri": "https://discord.com/oauth2/authorize",
+    "tokenUri": "https://discord.com/api/oauth2/token",
+    "userInfoUri": "https://discord.com/api/users/@me",
+    "redirectUri": "http://192.168.178.3:5173/api/auth/oauth2/callback",
+    "scope": "identify email openid",
+    "avatarKey": "avatar",
+    "avatarUrlFormat" : "https://cdn.discordapp.com/avatars/{id}/{avatar}.webp?size=1024",
+    "nameKey": "username"
+  }
+]

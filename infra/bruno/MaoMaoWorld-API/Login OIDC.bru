@@ -1,0 +1,15 @@
+meta {
+  name: Login OIDC
+  type: http
+  seq: 5
+}
+
+get {
+  url: http://localhost:8080/api/auth/login/oidc/1c174baa-f902-422d-b887-069aeed60f7f?redirect_uri=https://google.com
+  body: none
+  auth: inherit
+}
+
+params:query {
+  redirect_uri: https://google.com
+}

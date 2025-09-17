@@ -1,0 +1,20 @@
+stages:
+  - build_and_deploy
+
+build_and_deploy:
+  stage: build_and_deploy
+  script:
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    - echo "Building Docker images..."
+    - docker-compose build
+    - docker tag maomaoworld_auth:latest docker.io/$DOCKER_USERNAME/maomaoworld_auth:latest
+    - docker tag maomaoworld_music:latest docker.io/$DOCKER_USERNAME/maomaoworld_music:latest
+    - docker tag maomaoworld_web:latest docker.io/$DOCKER_USERNAME/maomaoworld_web:latest
+    - docker push docker.io/$DOCKER_USERNAME/maomaoworld_auth:latest
+    - docker push docker.io/$DOCKER_USERNAME/maomaoworld_music:latest
+    - docker push docker.io/$DOCKER_USERNAME/maomaoworld_web:latest
+    - echo "Docker images built and pushed successfully."
+    - echo "Running docker-compose up..."
+    - docker-compose up -d
+  only:
+    - main

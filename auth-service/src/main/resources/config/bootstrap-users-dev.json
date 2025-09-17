@@ -1,0 +1,20 @@
+{
+  "admins" : [
+    {
+      "username" : "maomao",
+      "email" : "maomao@mao.moe",
+      "password" : "password",
+      "displayName" : "MaoMao",
+      "avatarUrl" : "https://cdn.discordapp.com/avatars/258638799595110400/0e9742d682cd1af6f7d5693d532dc983.webp?size=1024&format=webp"
+    }
+  ],
+  "users" : [
+    {
+      "username" : "steve",
+      "email" : "steve@mao.moe",
+      "password" : "password",
+      "displayName" : "Steve der Test User",
+      "avatarUrl" : "https://cdn.discordapp.com/avatars/221950052313202689/2eb264e468cad34064c9ab93f649b97e.webp?size=1024&format=webp"
+    }
+  ]
+}

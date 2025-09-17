@@ -1,0 +1,580 @@
+@import "tailwindcss";
+
+:root {
+  /* Global theme variables */
+  --bg-primary: #f5f5f4;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f0f0ef;
+  --bg-primary-rgb: 245, 245, 244;
+  --bg-secondary-rgb: 255, 255, 255;
+  --bg-tertiary-rgb: 240, 240, 239;
+  --text-primary: #0c0a09;
+  --text-secondary: #a8a29e;
+  --text-muted: #78716c;
+  --border-color: #e7e5e4;
+  --border-color-darker: #d6d3d1;
+  
+  /* Accent colors */
+  --accent-1: #8b5cf6; /* purple-500 */
+  --accent-1-hover: #7c3aed; /* purple-600 */
+  --accent-2: #6366f1; /* indigo-500 */
+  --accent-2-hover: #4f46e5; /* indigo-600 */
+  --accent-3: #e9d5ff; /* purple-200 */
+  --accent-3-hover: #d8b4fe; /* purple-300 */
+  --accent-success: #43b581; /* discord-green */
+
+  /* Navigation button variables */
+  --nav-btn-bg-selected: #ffffff;
+  --nav-btn-bg-hover: #e7e5e4; /* stone-200 */
+  --nav-btn-text-selected: var(--text-primary);
+  --nav-btn-text-unselected: var(--text-muted);
+  --nav-btn-icon-selected: #8b5cf6; /* violet-500 */
+  
+  /* Menu variables */
+  --menu-bg: #ffffff;
+  --menu-border: #d6d3d1; /* stone-300 */
+  --menu-item-hover: #e7e5e4; /* stone-200 */
+  --menu-divider: #d6d3d1; /* stone-300 */
+  --menu-icon: #78716c; /* stone-500 */
+  --menu-danger: #dc2626; /* red-600 */
+  
+  /* RSS feed variables */
+  --rss-container-bg: #f5f5f4; /* stone-100 */
+  --rss-container-border: #e7e5e4; /* stone-200 */
+  --rss-loading-text: #78716c; /* stone-500 */
+  --rss-separator: #d6d3d1; /* stone-300 */
+  --rss-item-bg: #ffffff;
+  --rss-item-border: #e7e5e4; /* stone-200 */
+  --rss-item-text: #44403c; /* stone-700 */
+  --rss-item-indicator: #a855f7; /* purple-500 */
+  --rss-gradient-from: #f5f5f4; /* stone-100 */
+  --rss-item-hover-bg: #f3e8ff; /* violet-50 */
+  --rss-item-hover-text: var(--accent-1);
+  
+  /* Theme toggle variables */
+  --theme-toggle-icon: var(--text-primary);
+  --theme-toggle-icon-hover: var(--accent-1);
+  --theme-toggle-bg-hover: #e7e5e4; /* stone-200 - same as nav-btn-bg-hover */
+  
+  /* Auth page variables */
+  --auth-bg: #f8fafc; /* slate-50 */
+  --auth-container-bg: #ffffff;
+  --auth-text: var(--text-primary);
+  --auth-text-muted: #64748b; /* slate-500 */
+  --auth-border: #e2e8f0; /* slate-200 */
+  --auth-link: var(--accent-1);
+  --auth-link-hover: var(--accent-1-hover);
+  --auth-input-border: #cbd5e1; /* slate-300 */
+  --auth-input-focus: var(--accent-1);
+  --auth-btn-bg: var(--accent-1);
+  --auth-btn-hover: var(--accent-1-hover);
+  --auth-btn-text: #ffffff;
+  --auth-divider: #cbd5e1; /* slate-300 */
+  --auth-error-text: #dc2626; /* red-600 */
+  --auth-error-bg: #fef2f2; /* red-50 */
+  --auth-error-border: #fecaca; /* red-200 */
+  --auth-provider-border: #e2e8f0; /* slate-200 */
+  --auth-provider-hover: #f1f5f9; /* slate-100 */
+
+  /* Icon variables */
+  --ghost-face: #4a4a4a;
+  --ghost-body: #e0e0e0;
+  --ghost-hover-elipse: var(--accent-2);
+
+  /* Brand variables */
+  --youtube-main: #ff0000;
+  --youtube-highlight: #dc2626;
+  --spotify-main: #1db954;
+  --spotify-highlight: #22c55e;
+  --soundcloud-main: #ff5500;
+  --soundcloud-highlight: #f97316;
+}
+
+:root.dark {
+  /* Dark mode theme variables */
+  --bg-primary: #1c1917;
+  --bg-secondary: #292524;
+  --bg-tertiary: #1a1816;
+  --bg-primary-rgb: 28, 25, 23;
+  --bg-secondary-rgb: 41, 37, 36;
+  --bg-tertiary-rgb: 26, 24, 22;
+  --text-primary: #f5f5f4;
+  --text-secondary: #78716c;
+  --text-muted: #a8a29e;
+  --border-color: #44403c;
+  --border-color-darker: #57534e;
+  
+  /* Dark mode accent colors - same hues but adjusted for dark backgrounds */
+  --accent-1: #a78bfa; /* purple-400 - lighter for dark mode */
+  --accent-1-hover: #8b5cf6; /* purple-500 */
+  --accent-2: #818cf8; /* indigo-400 - lighter for dark mode */
+  --accent-2-hover: #6366f1; /* indigo-500 */
+  --accent-3: #312e81; /* indigo-900 */
+  --accent-3-hover: #312e81; /* indigo-900*/
+
+  /* Dark mode navigation button variables */
+  --nav-btn-bg-selected: #292524; /* stone-800 */
+  --nav-btn-bg-hover: #44403c; /* stone-700 */
+  --nav-btn-text-selected: var(--text-primary);
+  --nav-btn-text-unselected: var(--text-muted);
+  --nav-btn-icon-selected: #a78bfa; /* purple-400 */
+  
+  /* Dark mode menu variables */
+  --menu-bg: #292524; /* stone-800 */
+  --menu-border: #44403c; /* stone-700 */
+  --menu-item-hover: #44403c; /* stone-700 */
+  --menu-divider: #44403c; /* stone-700 */
+  --menu-icon: #a8a29e; /* stone-400 */
+  --menu-danger: #ef4444; /* red-500 - brighter for dark mode */
+  
+  /* Dark mode RSS feed variables */
+  --rss-container-bg: #292524; /* stone-800 */
+  --rss-container-border: #44403c; /* stone-700 */
+  --rss-loading-text: #a8a29e; /* stone-400 */
+  --rss-separator: #57534e; /* stone-600 */
+  --rss-item-bg: #1c1917; /* stone-900 */
+  --rss-item-border: #44403c; /* stone-700 */
+  --rss-item-text: #d6d3d1; /* stone-300 */
+  --rss-item-indicator: #a78bfa; /* purple-400 - lighter for dark mode */
+  --rss-gradient-from: #292524; /* stone-800 */
+  --rss-item-hover-bg: #44403c; /* stone-700 - more subtle dark gray */
+  --rss-item-hover-text: #f5f5f4; /* stone-50 - lighter text on hover */
+
+  /* Dark mode theme toggle variables */
+  --theme-toggle-icon: var(--text-primary);
+  --theme-toggle-icon-hover: var(--accent-1);
+  --theme-toggle-bg-hover: #44403c; /* stone-700 - same as nav-btn-bg-hover */
+  
+  /* Dark mode auth page variables */
+  --auth-bg: #0f172a; /* slate-900 */
+  --auth-container-bg: #1e293b; /* slate-800 */
+  --auth-text: #f8fafc; /* slate-50 */
+  --auth-text-muted: #94a3b8; /* slate-400 */
+  --auth-border: #334155; /* slate-700 */
+  --auth-link: var(--accent-1);
+  --auth-link-hover: var(--accent-1-hover);
+  --auth-input-border: #475569; /* slate-600 */
+  --auth-input-focus: var(--accent-1);
+  --auth-btn-bg: var(--accent-1);
+  --auth-btn-hover: var(--accent-1-hover);
+  --auth-btn-text: #f8fafc; /* slate-50 */
+  --auth-divider: #475569; /* slate-600 */
+  --auth-error-text: #f87171; /* red-400 */
+  --auth-error-bg: #450a0a; /* red-950 */
+  --auth-error-border: #7f1d1d; /* red-900 */
+  --auth-provider-border: #334155; /* slate-700 */
+  --auth-provider-hover: #334155; /* slate-700 */
+
+  /* Icon variables */
+  --ghost-face: #3a3a3a;
+  --ghost-body: #d1d5db;
+  --ghost-hover-elipse: var(--accent-2);
+
+  /* Brand variables */
+  --youtube-main: #ff0000;
+  --youtube-highlight: #f87171;
+  --spotify-main: #1db954;
+  --spotify-highlight: #4ade80;
+  --soundcloud-main: #ff5500;
+  --soundcloud-highlight: #fb923c;
+}
+
+/* Base styles */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Global scrollbar styles */
+::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--accent-1);
+  border-radius: 9999px;
+  border: 1px solid transparent;
+}
+
+/* Optional: on hover, intensify color */
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent-1-hover);
+}
+
+
+/* Text utility classes */
+.text-primary {
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+/* Utility classes for accent colors */
+.bg-accent-1 {
+  background-color: var(--accent-1);
+}
+
+.bg-accent-1-hover:hover {
+  background-color: var(--accent-1-hover);
+}
+
+.bg-tertiary {
+  background-color: var(--bg-tertiary);
+}
+
+.text-accent-1 {
+  color: var(--accent-1);
+}
+
+.border-accent-1 {
+  border-color: var(--accent-1);
+}
+
+.bg-accent-2 {
+  background-color: var(--accent-2);
+}
+
+.bg-accent-2-hover:hover {
+  background-color: var(--accent-2-hover);
+}
+
+.text-accent-2 {
+  color: var(--accent-2);
+}
+
+.border-accent-2 {
+  border-color: var(--accent-2);
+}
+
+.border-mute {
+  border-color: var(--border-color);
+}
+
+/* Dark mode overrides */
+.dark body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+input, textarea, select {
+  @apply border rounded-md px-3 py-2 w-full;
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+.card, .panel, .container {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+  @apply rounded-lg shadow border;
+}
+
+/* UI component border overrides */
+.topbar-border {
+  border-color: var(--border-color);
+}
+
+.dark .topbar-border {
+  border-color: var(--border-color);
+}
+
+/* Additional border utilities */
+.sidebar-border {
+  border-color: var(--border-color-darker);
+}
+
+.dark .sidebar-border {
+  border-color: var(--border-color);
+}
+
+/* Account toggle styling */
+.account-toggle-button {
+  @apply flex w-full gap-2 p-0.5 items-center rounded transition;
+  background-color: transparent;
+}
+
+.account-toggle-button:hover {
+  background-color: #e7e5e4; /* stone-200 */
+}
+
+.dark .account-toggle-button:hover {
+  background-color: #44403c; /* stone-700 */
+}
+
+.account-toggle-icon {
+  filter: none;
+}
+
+.dark .account-toggle-icon {
+  filter: invert(1) brightness(100%);
+}
+
+/* Account menu styling */
+.account-menu {
+  background-color: var(--menu-bg);
+  border-color: var(--menu-border);
+  @apply rounded-lg shadow-lg p-3 space-y-2 border;
+}
+
+.account-menu-divider {
+  border-color: var(--menu-divider);
+  @apply my-1;
+}
+
+.account-menu-item {
+  @apply flex items-center gap-2 w-full px-2 py-1.5 text-sm rounded transition;
+  color: var(--text-primary);
+}
+
+.account-menu-item:hover {
+  background-color: var(--menu-item-hover);
+}
+
+.account-menu-item.danger {
+  color: var(--menu-danger);
+}
+
+.account-menu-icon {
+  @apply w-5 h-5;
+  color: var(--menu-icon);
+}
+
+.account-menu-item.danger .account-menu-icon {
+  color: var(--menu-danger);
+}
+
+/* Theme toggle styling */
+.theme-toggle {
+  @apply p-2 rounded-full transition-colors;
+  background-color: transparent;
+}
+
+.theme-toggle:hover {
+  background-color: var(--theme-toggle-bg-hover);
+}
+
+.theme-toggle-icon {
+  @apply h-5 w-5 transition-colors;
+  color: var(--theme-toggle-icon);
+}
+
+.theme-toggle:hover .theme-toggle-icon {
+  color: var(--theme-toggle-icon-hover);
+}
+
+/* RSS feed styling */
+.rss-container {
+  @apply w-full h-full overflow-hidden rounded-md px-2 border;
+  background-color: var(--rss-container-bg);
+  border-color: var(--rss-container-border);
+}
+
+.rss-loading {
+  @apply text-sm flex items-center justify-center h-full;
+  color: var(--rss-loading-text);
+}
+
+.rss-error {
+  @apply text-sm flex items-center justify-center h-full;
+  color: var(--menu-danger);
+}
+
+.rss-gradient-left {
+  @apply absolute left-0 flex items-center h-full;
+}
+
+.rss-gradient-left-inner {
+  @apply w-8 h-full z-10;
+  background-image: linear-gradient(to right, var(--rss-gradient-from), transparent);
+}
+
+.rss-gradient-right {
+  @apply absolute right-0 flex items-center h-full;
+}
+
+.rss-gradient-right-inner {
+  @apply w-8 h-full z-10;
+  background-image: linear-gradient(to left, var(--rss-gradient-from), transparent);
+}
+
+.rss-item {
+  @apply text-sm inline-flex items-center px-3 py-1 rounded-full mx-1 shadow-sm border transition-colors;
+  background-color: var(--rss-item-bg);
+  border-color: var(--rss-item-border);
+  color: var(--rss-item-text);
+}
+
+.rss-item:hover {
+  background-color: var(--rss-item-hover-bg);
+  color: var(--rss-item-hover-text);
+}
+
+.rss-item-indicator {
+  @apply inline-block w-2 h-2 rounded-full mr-2;
+  background-color: var(--rss-item-indicator);
+}
+
+.rss-separator {
+  @apply inline-block mx-1;
+  color: var(--rss-separator);
+}
+
+/* Auth pages styling */
+.auth-layout {
+  @apply min-h-screen flex justify-center py-8;
+  background-color: var(--auth-bg);
+  color: var(--auth-text);
+}
+
+.auth-container {
+  @apply w-full max-w-sm p-6 rounded-lg shadow;
+  background-color: var(--auth-container-bg);
+  border: 1px solid var(--auth-border);
+}
+
+.auth-header {
+  @apply text-center mb-6;
+}
+
+.auth-header h1 {
+  @apply text-3xl font-bold;
+  color: var(--auth-text);
+}
+
+.auth-footer {
+  @apply mt-8 text-center text-xs space-x-2;
+  color: var(--auth-text-muted);
+}
+
+.auth-footer a {
+  color: var(--auth-text-muted);
+}
+
+.auth-footer a:hover {
+  color: var(--auth-link);
+}
+
+.auth-divider {
+  @apply flex items-center my-4;
+}
+
+.auth-divider hr {
+  @apply flex-1;
+  border-color: var(--auth-divider);
+}
+
+.auth-divider span {
+  @apply px-2 text-sm;
+  color: var(--auth-text-muted);
+}
+
+.auth-input-label {
+  @apply block text-sm font-medium mb-1;
+  color: var(--auth-text);
+}
+
+.auth-input {
+  @apply w-full px-3 py-2 border rounded transition-colors duration-300 focus:outline-none;
+  background-color: var(--auth-container-bg);
+  border-color: var(--auth-input-border);
+  color: var(--auth-text);
+}
+
+.auth-input:focus {
+  border-color: var(--auth-input-focus);
+}
+
+.auth-input.error {
+  border-color: var(--auth-error-text);
+}
+
+.auth-button {
+  @apply w-full py-2 rounded transition;
+  background-color: var(--auth-btn-bg);
+  color: var(--auth-btn-text);
+}
+
+.auth-button:hover {
+  background-color: var(--auth-btn-hover);
+}
+
+.auth-error-box {
+  @apply rounded p-2 text-sm;
+  background-color: var(--auth-error-bg);
+  border: 1px solid var(--auth-error-border);
+  color: var(--auth-error-text);
+}
+
+.auth-provider-button {
+  @apply w-full flex items-center justify-center py-2 border rounded transition;
+  background-color: var(--auth-container-bg);
+  border-color: var(--auth-provider-border);
+  color: var(--auth-text);
+}
+
+.auth-provider-button:hover {
+  background-color: var(--auth-provider-hover);
+}
+
+/* Original utility classes */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-button {
+  @apply flex items-center justify-start gap-2 w-full rounded px-2 py-1.5 text-sm transition-[box-shadow,_background-color,_color];
+}
+
+.nav-button.selected {
+  background-color: var(--nav-btn-bg-selected);
+  color: var(--nav-btn-text-selected);
+  @apply shadow;
+}
+
+.nav-button:not(.selected) {
+  background-color: transparent;
+  color: var(--nav-btn-text-unselected);
+  @apply shadow-none;
+}
+
+.nav-button:not(.selected):hover {
+  background-color: var(--nav-btn-bg-hover);
+}
+
+.nav-button .icon {
+  @apply w-5 h-5 flex-shrink-0;
+}
+
+.nav-button.selected .icon {
+  color: var(--nav-btn-icon-selected);
+}
+
+/* Sidebar divider styling */
+.sidebar-divider {
+  border-color: var(--border-color);
+}
+
+.dark .sidebar-divider {
+  border-color: var(--border-color-darker);
+}
+
+/* Sidebar footer border styling */
+.sidebar-footer-border {
+  border-color: var(--border-color);
+}
+
+.dark .sidebar-footer-border {
+  border-color: var(--border-color);
+}

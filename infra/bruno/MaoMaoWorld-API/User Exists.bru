@@ -1,0 +1,11 @@
+meta {
+  name: User Exists
+  type: http
+  seq: 6
+}
+
+get {
+  url: http://localhost:8080/api/auth/user/test_user
+  body: none
+  auth: inherit
+}

@@ -1,0 +1,11 @@
+meta {
+  name: JWKS Info
+  type: http
+  seq: 9
+}
+
+get {
+  url: http://localhost:8080/api/.well-known/jwks.json
+  body: none
+  auth: inherit
+}

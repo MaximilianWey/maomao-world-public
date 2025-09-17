@@ -1,0 +1,38 @@
+model
+  schema 1.1
+
+type user
+
+type system
+  relations
+    define super_admin: [user]
+
+type service
+  relations
+    define system: [system]
+    define admin: [user] or super_admin from system
+    define member: [user] or admin
+    define can_manage: admin
+    define can_view: member
+
+# --- Specific Service Resources --- #
+# - Discord specific types - #
+type discord_user
+
+type discord_guild
+  relations
+    define admin: [discord_user]
+    define moderator: [discord_user] or admin
+    define member: [discord_user] or moderator
+
+# - MaoMao Music - #
+type music_player
+  relations
+    define service: [service]
+    define guild: [discord_guild]
+    define viewer: [user] or member from guild
+    define dj: [user] or admin from service or moderator from guild or viewer
+    define can_see_queue: viewer
+    define can_play: dj
+    define can_skip: dj
+    define can_search: dj

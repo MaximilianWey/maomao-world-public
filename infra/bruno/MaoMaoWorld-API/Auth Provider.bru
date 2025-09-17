@@ -1,0 +1,11 @@
+meta {
+  name: Auth Provider
+  type: http
+  seq: 8
+}
+
+delete {
+  url: http://localhost:8080/api/admin/provider/unregister/{id}
+  body: none
+  auth: inherit
+}

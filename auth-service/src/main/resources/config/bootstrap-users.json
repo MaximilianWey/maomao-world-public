@@ -1,0 +1,13 @@
+{
+  "admins" : [
+    {
+      "username" : "Admin",
+      "email" : "admin@mao.moe",
+      "password" : "password",
+      "displayName" : "Admin",
+      "avatarUrl" : "https://cdn.discordapp.com/avatars/1320949662232088596/c8c48d6cc7d37c2ea553f76e73264425.webp?size=1024"
+    }
+  ],
+  "users" : [
+  ]
+}
