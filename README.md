@@ -2,7 +2,7 @@
 # Note
 
 The following is a snapshot from a private microservice based project I started working on early 2025.
-It is mostly abandonded and planned to be replaced by a new microservice based full stack application where I want to practice React and integrating Services like AWS and Azure.
+It is mostly abandoned and planned to be replaced by a new microservice-based full stack application where I want to practice React and integrating Services like AWS and Azure.
 
 
 ---
